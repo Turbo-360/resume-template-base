@@ -2,9 +2,6 @@ const turbo = require('turbo360')({site_id: process.env.TURBO_APP_ID})
 const vertex = require('vertex360')({site_id: process.env.TURBO_APP_ID})
 const router = vertex.router()
 const controllers = require('../controllers')
-// const home = require('../pages/home.json')
-// const blog = require('../pages/blog.json')
-// const global = require('../pages/global.json')
 const CDN = (process.env.TURBO_ENV=='dev') ? null : process.env.CDN
 
 router.get('/', (req, res) => {
