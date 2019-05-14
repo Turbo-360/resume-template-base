@@ -49,7 +49,7 @@ router.get('/blog', (req, res) => {
 	const data = {cdn: CDN}
 
 	let ctr = new controllers.post()
-	return ctr.get()
+	ctr.get()
 	.then(posts => {
 		data['posts'] = posts
 		return turbo.currentApp(process.env.TURBO_ENV)
@@ -71,7 +71,7 @@ router.get('/post/:slug', (req, res) => {
 	const data = {cdn: CDN}
 
 	let ctr = new controllers.post()
-	return ctr.get({slug:req.params.slug})
+	ctr.get({slug:req.params.slug})
 	.then(posts => {
 		if (posts.length == 0){
 			throw new Error('Post '+req.params.slug+' not found.')
